@@ -250,26 +250,34 @@ namespace ICSharpCode.ILSpy
 
 			void InsertResult(ObservableCollection<SearchResult> results, SearchResult result)
 			{
-				if (Options.DisplaySettingsPanel.CurrentDisplaySettings.SortResults)
-				{
-					// Keep results collection sorted by "Fitness" by inserting result into correct place
-					// Inserts in the beginning shifts all elements, but there can be no more than 1000 items.
-					for (int i = 0; i < results.Count; i++)
-					{
-						if (results[i].Fitness < result.Fitness)
-						{
-							results.Insert(i, result);
-							return;
-						}
+
+				for (int i = 0; i < results.Count; i++) {
+					if (results[i].Fitness < result.Fitness) {
+						results.Insert(i, result);
+						return;
 					}
-					results.Insert(results.Count - 1, result);
 				}
-				else
-				{
-					// Original Code
-					int index = results.BinarySearch(result, 0, results.Count - 1, SearchResult.Comparer);
-					results.Insert(index < 0 ? ~index : index, result);
-				}
+				results.Insert(results.Count - 1, result);
+				//if (Options.DisplaySettingsPanel.CurrentDisplaySettings.SortResults)
+				//{
+				//	// Keep results collection sorted by "Fitness" by inserting result into correct place
+				//	// Inserts in the beginning shifts all elements, but there can be no more than 1000 items.
+				//	for (int i = 0; i < results.Count; i++)
+				//	{
+				//		if (results[i].Fitness < result.Fitness)
+				//		{
+				//			results.Insert(i, result);
+				//			return;
+				//		}
+				//	}
+				//	results.Insert(results.Count - 1, result);
+				//}
+				//else
+				//{
+				//	// Original Code
+				//	int index = results.BinarySearch(result, 0, results.Count - 1, SearchResult.Comparer);
+				//	results.Insert(index < 0 ? ~index : index, result);
+				//}
 			}
 
 			AbstractSearchStrategy GetSearchStrategy(SearchMode mode, string[] terms)

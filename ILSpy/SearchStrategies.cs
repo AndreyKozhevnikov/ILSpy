@@ -56,7 +56,11 @@ namespace ICSharpCode.ILSpy
 			// Ignore generic arguments, it not possible to search based on them either
 			text = ReflectionHelper.SplitTypeParameterCountFromReflectionName(text);
 
-			return 1.0f / text.Length;
+			var res= 1.0f / text.Length;
+			if (member.DeclaringType?.FullName.StartsWith("DevExpress.ExpressApp")==true || member.FullName.StartsWith("DevExpress.ExpressApp")) {
+				res += 1;
+			}
+			return res;
 		}
 
 		protected virtual bool IsMatch(FieldDefinition field, Language language)
