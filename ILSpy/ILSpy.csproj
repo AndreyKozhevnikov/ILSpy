@@ -290,6 +290,15 @@
     <Compile Include="TreeNodes\TypeTreeNode.cs" />
     <EmbeddedResource Include="README.txt" />
 	<EmbeddedResource Include="TextView\ILAsm-Mode.xshd" />
+	    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
