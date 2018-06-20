@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="PriorityNamespace" Type="System.String" Scope="User">
-      <Value Profile="(Default)">DevExpress.ExpressApp</Value>
+      <Value Profile="(Default)">DevExpress.ExpressApp;DevExpress.Persistent;DevExpress.Xpo</Value>
     </Setting>
   </Settings>
 </SettingsFile>
