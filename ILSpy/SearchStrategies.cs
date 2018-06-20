@@ -57,6 +57,9 @@ namespace ICSharpCode.ILSpy
 			text = ReflectionHelper.SplitTypeParameterCountFromReflectionName(text);
 
 			var res= 1.0f / text.Length;
+			if (res == 1)
+				res += 1;
+
             var priorityNamespace = Properties2.Settings.Default.PriorityNamespace;
             if(member.DeclaringType?.FullName.StartsWith(priorityNamespace) == true || member.FullName.StartsWith(priorityNamespace)) {
                 res += 1;
