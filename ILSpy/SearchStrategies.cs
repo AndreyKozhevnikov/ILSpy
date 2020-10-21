@@ -60,7 +60,7 @@ namespace ICSharpCode.ILSpy
 			if (res == 1)
 				res += 1;
 
-			var priorityNamespaces = Properties2.Settings.Default.PriorityNamespace.Split(';');
+			var priorityNamespaces = Properties.Settings.Default.PriorityNamespace.Split(';');
 			foreach (var nameSpace in priorityNamespaces) {
 				if (member.DeclaringType?.FullName.StartsWith(nameSpace) == true || member.FullName.StartsWith(nameSpace)) {
 					res += 1;
