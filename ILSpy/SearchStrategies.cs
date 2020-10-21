@@ -482,7 +482,7 @@ namespace ICSharpCode.ILSpy
 				addResult(new SearchResult {
 					Member = type,
 					Image = TypeTreeNode.GetIcon(type),
-					Fitness = CalculateFitness(type),
+					Fitness = CalculateFitness(type) + 1,
 					Name = name,
 					LocationImage = type.DeclaringType != null ? TypeTreeNode.GetIcon(type.DeclaringType) : Images.Namespace,
 					Location = type.DeclaringType != null ? language.TypeToString(type.DeclaringType, includeNamespace: true) : type.Namespace
